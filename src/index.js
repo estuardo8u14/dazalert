@@ -1,17 +1,52 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import "./main.scss";
+import Home from "./pages/Home";
+import Notification from "./pages/Notification";
+import Settings from "./pages/Settings";
+import Chat from "./pages/Chat";
+import ShopTwo from "./pages/ShopTwo";
+import Userpage from "./pages/Userpage";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import * as serviceWorker from "./serviceWorker";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+class Root extends Component {
+  render() {
+    return (
+      <BrowserRouter basename={"/"}>
+        <Switch>
+          <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
+          <Route
+            exact
+            path={`${process.env.PUBLIC_URL}/defaultnoti`}
+            component={Notification}
+          />
+          <Route
+            exact
+            path={`${process.env.PUBLIC_URL}/defaultsettings`}
+            component={Settings}
+          />
+          <Route
+            exact
+            path={`${process.env.PUBLIC_URL}/defaultmessage`}
+            component={Chat}
+          />
+          <Route
+            exact
+            path={`${process.env.PUBLIC_URL}/shop2`}
+            component={ShopTwo}
+          />
+          <Route
+            exact
+            path={`${process.env.PUBLIC_URL}/userpage`}
+            component={Userpage}
+          />
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+}
+
+ReactDOM.render(<Root />, document.getElementById("root"));
+serviceWorker.register();
