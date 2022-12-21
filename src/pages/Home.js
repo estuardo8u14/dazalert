@@ -12,6 +12,7 @@ import Events from "../components/Events";
 import Memberslider from "../components/Memberslider";
 //import Friendsilder from "../components/Friendsilder";
 //import Storyslider from "../components/Storyslider";
+//rev
 import Postview from "../components/Postview";
 import Load from "../components/Load";
 import Profilephoto from "../components/Profilephoto";
